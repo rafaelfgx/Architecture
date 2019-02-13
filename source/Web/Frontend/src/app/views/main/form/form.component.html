@@ -1,0 +1,125 @@
+<button class="uk-button uk-button-primary" type="submit" (click)="disabled = !disabled">{{ disabled ? 'Enable' : 'Disable' }}</button>
+
+<h2>Cascading Select</h2>
+
+<div class="uk-flex uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-2@m uk-child-width-1-3@l">
+    <form class="uk-form-stacked" novalidate #templateForm="ngForm" (ngSubmit)="submit()">
+        <fieldset class="uk-fieldset" [disabled]="disabled">
+
+            <div class="uk-margin">
+                <div class="uk-form-controls">
+                    <button class="uk-button uk-button-primary" type="button" (click)="set()">Country - State - City</button>
+                </div>
+            </div>
+
+            <div class="uk-margin">
+                <label class="uk-form-label">Country:</label>
+                <div class="uk-form-controls">
+                    <app-select-country #appSelectCountry name="country" [(ngModel)]="country" (changed)="appSelectState.load($event)"></app-select-country>
+                    <span>Country: {{ country }}</span>
+                </div>
+            </div>
+
+            <div class="uk-margin">
+                <label class="uk-form-label">State:</label>
+                <div class="uk-form-controls">
+                    <app-select-state #appSelectState name="state" [(ngModel)]="state" [lazy]="true" (changed)="appSelectCity.load($event)"></app-select-state>
+                    <span>State: {{ state }}</span>
+                </div>
+            </div>
+
+            <div class="uk-margin">
+                <label class="uk-form-label">City:</label>
+                <div class="uk-form-controls">
+                    <app-select-city #appSelectCity name="city" [(ngModel)]="city" [lazy]="true"></app-select-city>
+                    <span>City: {{ city }}</span>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+
+<h2>Template Forms</h2>
+
+<div class="uk-flex uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-2@m uk-child-width-1-3@l">
+    <form class="uk-form-stacked" novalidate #templateForm="ngForm" (ngSubmit)="submit()">
+        <fieldset class="uk-fieldset" [disabled]="disabled">
+
+            <div class="uk-margin">
+                <label class="uk-form-label">Number:</label>
+                <div class="uk-form-controls">
+                    <input class="uk-input" name="number" type="text" [(ngModel)]="model.number" required pattern="\d+">
+                </div>
+            </div>
+
+            <div class="uk-margin">
+                <label class="uk-form-label">String:</label>
+                <div class="uk-form-controls">
+                    <input class="uk-input" name="string" type="text" [(ngModel)]="model.string" required>
+                </div>
+            </div>
+
+            <div class="uk-margin">
+                <label class="uk-form-label">Child:</label>
+                <div class="uk-form-controls" ngModelGroup="child">
+                    <input class="uk-input" name="child.string" type="text" [(ngModel)]="model.child.string">
+                </div>
+            </div>
+
+            <div class="uk-margin">
+                <div class="uk-form-controls">
+                    <button class="uk-button uk-button-primary" type="submit">Save</button>
+                </div>
+            </div>
+            <div class="uk-margin">
+                <div class="uk-form-controls">
+                    <p>Form Valid: {{ templateForm.valid }}</p>
+                    <p>Form Value: {{ templateForm.value | json }}</p>
+                    <p>Model Value: {{ model | json }}</p>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+
+<h2>Reactive Forms</h2>
+
+<div class="uk-flex uk-grid uk-child-width-1-1@s uk-child-width-1-2@m uk-child-width-1-3@l">
+    <form class="uk-form-stacked" novalidate [formGroup]="form" (ngSubmit)="submit()">
+        <fieldset class="uk-fieldset" [disabled]="disabled">
+
+            <div class="uk-margin">
+                <label class="uk-form-label">Number:</label>
+                <div class="uk-form-controls">
+                    <input class="uk-input" type="text" formControlName="number" required pattern="\d+">
+                </div>
+            </div>
+
+            <div class="uk-margin">
+                <label class="uk-form-label">String:</label>
+                <div class="uk-form-controls">
+                    <input class="uk-input" type="text" formControlName="string" required>
+                </div>
+            </div>
+
+            <div class="uk-margin">
+                <label class="uk-form-label">Child:</label>
+                <div class="uk-form-controls" formGroupName="child">
+                    <input class="uk-input" type="text" formControlName="string">
+                </div>
+            </div>
+
+            <div class="uk-margin">
+                <div class="uk-form-controls">
+                    <button class="uk-button uk-button-primary" type="submit">Save</button>
+                </div>
+            </div>
+            <div class="uk-margin">
+                <div class="uk-form-controls">
+                    <p>Form Valid: {{ form.valid }}</p>
+                    <p>Form Value: {{ form.value | json }}</p>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>

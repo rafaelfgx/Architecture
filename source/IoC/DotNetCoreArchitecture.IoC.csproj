@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>netcoreapp2.2</TargetFramework>
+    </PropertyGroup>
+    <ItemGroup>
+      <PackageReference Include="DotNetCore.IoC" Version="6.8.0" />
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\Application\DotNetCoreArchitecture.Application.csproj" />
+    </ItemGroup>
+</Project>

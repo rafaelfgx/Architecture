@@ -1,0 +1,20 @@
+<table class="uk-table uk-table-responsive uk-table-divider uk-table-hover uk-table-small uk-table-striped">
+    <thead>
+        <tr>
+            <th class="uk-text-nowrap uk-text-center@m">Id</th>
+            <th class="uk-text-nowrap">Name</th>
+            <th class="uk-text-nowrap">Username</th>
+            <th class="uk-text-nowrap">Email</th>
+            <th class="uk-text-nowrap">Company</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of list">
+            <td class="uk-text-nowrap uk-text-center@m">{{ item?.id }}</td>
+            <td class="uk-text-nowrap">{{ item?.name }}</td>
+            <td class="uk-text-nowrap">{{ item?.username }}</td>
+            <td class="uk-text-nowrap">{{ item?.email }}</td>
+            <td class="uk-text-nowrap">{{ item?.company?.name }}</td>
+        </tr>
+    </tbody>
+</table>

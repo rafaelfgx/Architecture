@@ -1,0 +1,4 @@
+<select class="uk-select" [disabled]="disabled || !options || options.length === 0" [name]="name" [(ngModel)]="ngModel" [required]="required" (change)="change()">
+    <option selected value [disabled]="required"></option>
+    <option *ngFor="let option of options" [value]="option.value">{{ option.text }}</option>
+</select>

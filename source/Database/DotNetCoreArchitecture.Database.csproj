@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>netcoreapp2.2</TargetFramework>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="DotNetCore.EntityFrameworkCore" Version="6.10.0" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.2" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.2.2" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.2" />
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\Model\DotNetCoreArchitecture.Model.csproj" />
+    </ItemGroup>
+</Project>

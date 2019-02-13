@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+    <PropertyGroup>
+        <BuildServerSideRenderer>false</BuildServerSideRenderer>
+        <TargetFramework>netcoreapp2.2</TargetFramework>
+        <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+        <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="DotNetCore.AspNetCore" Version="6.14.0" />
+        <PackageReference Include="Microsoft.AspNetCore.App" />
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\IoC\DotNetCoreArchitecture.IoC.csproj" />
+    </ItemGroup>
+</Project>

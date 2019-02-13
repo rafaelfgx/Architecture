@@ -1,0 +1,61 @@
+version: "3.7"
+
+services:
+    dotnetcorearchitecture_web:
+        build:
+            context: .
+            dockerfile: dockerfile
+            args:
+                ANGULAR_ENVIRONMENT: container
+                ASPNETCORE_ENVIRONMENT: Container
+        image: dotnetcorearchitecture_web
+        container_name: dotnetcorearchitecture_web
+        depends_on:
+            - dotnetcorearchitecture_mssqlserver
+        networks:
+            - network
+        ports:
+            - 8095:80
+    dotnetcorearchitecture_mssqlserver:
+        image: microsoft/mssql-server-linux
+        container_name: dotnetcorearchitecture_mssqlserver
+        environment:
+            ACCEPT_EULA: Y
+            SA_PASSWORD: P4ss-W0rd!
+        networks:
+            - network
+        ports:
+            - 1433:1433
+        volumes:
+            - mssql:/var/opt/mssql
+    # dotnetcorearchitecture_mongo:
+    #     image: mongo
+    #     container_name: dotnetcorearchitecture_mongo
+    #     environment:
+    #         MONGO_INITDB_DATABASE: db
+    #         MONGO_INITDB_ROOT_PASSWORD: P4ss-W0rd
+    #         MONGO_INITDB_ROOT_USERNAME: admin
+    #     networks:
+    #         - network
+    #     ports:
+    #         - 27017:27017
+    #     volumes:
+    #         - mongo:/data/db
+    # dotnetcorearchitecture_redis:
+    #     image: redis
+    #     container_name: dotnetcorearchitecture_redis
+    #     command: redis-server --requirepass P4ss-W0rd
+    #     networks:
+    #         - network
+    #     ports:
+    #         - 6379:6379
+    #     volumes:
+    #         - redis:/data
+
+networks:
+    network:
+
+volumes:
+    mssql:
+    # mongo:
+    # redis:

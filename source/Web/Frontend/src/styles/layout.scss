@@ -1,0 +1,77 @@
+html, body, app-root, app-layout, app-layout-main {
+    height: 100%;
+    margin: 0;
+    min-height: 100%;
+    padding: 0;
+    width: 100%;
+}
+
+app-layout, app-layout-main {
+    display: flex;
+    flex-direction: column;
+}
+
+app-header {
+    background-color: #0A69b7;
+}
+
+app-header h1, app-header span, app-header a {
+    color: #FFF;
+}
+
+app-nav nav ul {
+    background-color: #2196F3;
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding-left: 0;
+}
+
+app-nav nav ul li {
+    margin: 0.75rem;
+    padding: 0.25rem 0.75rem;
+    text-align: center;
+}
+
+app-nav nav ul li a, app-nav nav ul li a:hover {
+    color: #FFF;
+    font-weight: bold;
+}
+
+app-nav nav ul li.nav-active {
+    background-color: #0A69b7;
+}
+
+app-nav nav ul li.nav-active > a {
+    text-decoration: none;
+}
+
+@media screen and (max-width: 767px) {
+    app-nav nav {
+        border-top: 0.1rem solid #FFF;
+    }
+
+    app-nav nav ul {
+        display: block;
+    }
+
+    app-nav nav ul li {
+        border-bottom: 0.1rem solid #FFF;
+        margin: 0;
+        padding: 0.5rem 0;
+        width: 100%;
+    }
+}
+
+app-main {
+    background-color: #FFF;
+    flex: auto;
+}
+
+app-footer {
+    background-color: #242729;
+}
+
+app-footer h1, app-footer span, app-footer a {
+    color: #BBB;
+}

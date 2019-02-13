@@ -1,0 +1,30 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Run",
+            "request": "launch",
+            "type": "coreclr",
+            "preLaunchTask": "build",
+            "cwd": "${workspaceFolder}/Web",
+            "program": "${workspaceFolder}/Web/bin/Debug/netcoreapp2.1/DotNetCoreArchitecture.Web.dll",
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            },
+            "launchBrowser": {
+                "args": "${auto-detect-url}",
+                "enabled": true,
+                "linux": {
+                    "command": "xdg-open"
+                },
+                "osx": {
+                    "command": "open"
+                },
+                "windows": {
+                    "command": "cmd.exe",
+                    "args": "/C start ${auto-detect-url}"
+                }
+            }
+        }
+    ]
+}

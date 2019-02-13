@@ -1,0 +1,29 @@
+input.ng-dirty.ng-invalid,
+input.ng-touched.ng-invalid,
+select.ng-dirty.ng-invalid,
+select.ng-touched.ng-invalid,
+textarea.ng-dirty.ng-invalid,
+textarea.ng-touched.ng-invalid {
+    background-color: #FEF4F6;
+    border: 0.05rem solid #F0506E;
+    color: #F0506E;
+}
+
+input.ng-dirty.ng-valid,
+input.ng-touched.ng-valid,
+select.ng-dirty.ng-valid,
+select.ng-touched.ng-valid,
+textarea.ng-dirty.ng-valid,
+textarea.ng-touched.ng-valid {
+    background-color: #EDFBF6;
+    border: 0.05rem solid #32D296;
+    color: #32D296;
+}
+
+input:disabled,
+select:disabled,
+textarea:disabled {
+    background-color: #F8F8F8 !important;
+    border-color: #E5E5E5 !important;
+    color: #999 !important;
+}
