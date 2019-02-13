@@ -7,7 +7,7 @@
             "type": "coreclr",
             "preLaunchTask": "build",
             "cwd": "${workspaceFolder}/Web",
-            "program": "${workspaceFolder}/Web/bin/Debug/netcoreapp2.1/DotNetCoreArchitecture.Web.dll",
+            "program": "${workspaceFolder}/Web/bin/Debug/netcoreapp2.2/DotNetCoreArchitecture.Web.dll",
             "env": {
                 "ASPNETCORE_ENVIRONMENT": "Development"
             },
