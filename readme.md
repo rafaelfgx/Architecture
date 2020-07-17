@@ -1,5 +1,7 @@
 # Architecture
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/bf6f7a8858454b97851e61367b2f5932)](https://app.codacy.com/manual/rafaelfgx/Architecture?utm_source=github.com&utm_medium=referral&utm_content=rafaelfgx/Architecture&utm_campaign=Badge_Grade_Dashboard)
+
 ![](https://dev.azure.com/rafaelfgx/Architecture/_apis/build/status/Build)
 ![](https://app.codacy.com/project/badge/Grade/3d1ea5b1f4b745488384c744cb00d51e)
 ![](https://img.shields.io/github/repo-size/rafaelfgx/Architecture?label=Size)
