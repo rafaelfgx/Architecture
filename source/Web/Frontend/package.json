@@ -1,0 +1,31 @@
+{
+    "name": "frontend",
+    "version": "1.0.0",
+    "dependencies": {
+        "@angular/common": "10.0.4",
+        "@angular/compiler": "10.0.4",
+        "@angular/core": "10.0.4",
+        "@angular/forms": "10.0.4",
+        "@angular/platform-browser": "10.0.4",
+        "@angular/platform-browser-dynamic": "10.0.4",
+        "@angular/router": "10.0.4",
+        "rxjs": "6.6.0",
+        "uikit": "3.5.5",
+        "zone.js": "0.10.3"
+    },
+    "devDependencies": {
+        "@angular-devkit/build-angular": "0.1000.3",
+        "@angular-devkit/build-optimizer": "0.1000.3",
+        "@angular/cli": "10.0.3",
+        "@angular/compiler-cli": "10.0.3",
+        "@angular/language-service": "10.0.4",
+        "codelyzer": "6.0.0",
+        "tslint": "6.1.2",
+        "typescript": "3.9.6"
+    },
+    "scripts": {
+        "restore": "npm install --suppess-warnings --loglevel=error",
+        "start": "ng lint && ng serve",
+        "production": "ng lint && ng build --configuration=production"
+    }
+}

@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="DotNetCore.AspNetCore" Version="12.6.0" />
+        <PackageReference Include="DotNetCore.IoC" Version="12.6.0" />
+        <PackageReference Include="DotNetCore.Logging" Version="12.6.0" />
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\Application\Architecture.Application.csproj" />
+    </ItemGroup>
+</Project>
