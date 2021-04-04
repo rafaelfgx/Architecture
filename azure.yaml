@@ -1,0 +1,55 @@
+resources:
+- repo: self
+  clean: true
+
+pool:
+  name: Azure Pipelines
+variables:
+  BuildConfiguration: 'Release'
+
+steps:
+- task: UseDotNet@2
+  displayName: '.NET Install'
+  inputs:
+    useGlobalJson: true
+
+- task: DotNetCoreCLI@2
+  displayName: '.NET Publish'
+  inputs:
+    command: publish
+    publishWebProjects: false
+    projects: '**/*.Web.csproj'
+    arguments: '--configuration $(BuildConfiguration) --output $(build.ArtifactStagingDirectory)'
+    zipAfterPublish: false
+    modifyOutputPath: false
+
+- task: UseNode@1
+  displayName: 'Node Install'
+  inputs:
+    version: 14.x
+    checkLatest: true
+
+- task: Npm@1
+  displayName: 'NPM Install'
+  inputs:
+    workingDir: source/Web/Frontend
+    verbose: true
+
+- task: Npm@1
+  displayName: 'NPM Run Production'
+  inputs:
+    command: custom
+    workingDir: source/Web/Frontend
+    verbose: false
+    customCommand: 'run production'
+
+- task: CopyFiles@2
+  displayName: 'Copy Angular Dist'
+  inputs:
+    SourceFolder: source/Web/Frontend/dist
+    TargetFolder: '$(build.ArtifactStagingDirectory)/Frontend/dist'
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact'
+  inputs:
+    ArtifactName: publish
