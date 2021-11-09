@@ -1,0 +1,35 @@
+{
+    "name": "frontend",
+    "version": "0.0.0",
+    "dependencies": {
+        "@angular/common": "13.0.0",
+        "@angular/compiler": "13.0.0",
+        "@angular/core": "13.0.0",
+        "@angular/forms": "13.0.0",
+        "@angular/platform-browser": "13.0.0",
+        "@angular/platform-browser-dynamic": "13.0.0",
+        "@angular/router": "13.0.0",
+        "rxjs": "7.4.0",
+        "uikit": "3.8.1",
+        "zone.js": "0.11.4"
+    },
+    "devDependencies": {
+        "@angular-devkit/build-angular": "13.0.1",
+        "@angular/cli": "13.0.1",
+        "@angular/compiler-cli": "13.0.0",
+        "typescript": "4.4.4"
+    },
+    "browserslist": [
+        "last 1 Chrome version",
+        "last 1 Edge version",
+        "last 1 Firefox version",
+        "last 1 Opera version",
+        "last 1 Safari version",
+        "not dead"
+    ],
+    "scripts": {
+        "restore": "npm install --loglevel=error",
+        "start": "ng serve",
+        "publish": "ng build --configuration production"
+    }
+}
