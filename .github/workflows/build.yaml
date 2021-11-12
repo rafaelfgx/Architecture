@@ -2,6 +2,16 @@ name: build
 on:
   push:
     branches: [main]
+  pull_request:
+    types: [opened, synchronize, reopened]
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'     
+        required: true
+        default: 'warning'
+      tags:
+        description: 'Test scenario tags'
 jobs:
   build:
     runs-on: ubuntu-latest
