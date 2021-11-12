@@ -19,10 +19,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: DotNet Setup
+      - name: DotNet Setup 6
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: "6.x.x"
+          
+      - name: DotNet Setup 5
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: "5.x.x"
 
 #sonar cloud section
       - name: Set up JDK 11
