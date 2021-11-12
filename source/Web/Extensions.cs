@@ -1,4 +1,5 @@
 using Architecture.Application;
+using Architecture.Application.Demo;
 using Architecture.Database;
 using DotNetCore.AspNetCore;
 using DotNetCore.EntityFrameworkCore;
@@ -27,6 +28,7 @@ public static class Extensions
     {
         services.AddClassesMatchingInterfaces(typeof(IUserService).Assembly);
         services.AddClassesMatchingInterfaces(typeof(IUserRepository).Assembly);
+        services.AddClassesMatchingInterfaces(typeof(IDemoService).Assembly);
     }
 
     public static void AddSpa(this IServiceCollection services)
