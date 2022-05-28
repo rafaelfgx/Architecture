@@ -4,5 +4,6 @@
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="DotNetCore.Domain" Version="16.35.0" />
+        <PackageReference Include="Supernova.Enum.Generators" Version="1.0.11" />
     </ItemGroup>
 </Project>
