@@ -1,0 +1,8 @@
+code --install-extension Angular.ng-template
+code --install-extension PKief.material-icon-theme
+code --install-extension Tyriar.sort-lines
+code --install-extension akamud.vscode-theme-onedark
+code --install-extension ms-dotnettools.csharp
+code --install-extension ms-kubernetes-tools.vscode-kubernetes-tools
+code --install-extension ms-vscode.vs-keybindings
+code --install-extension redhat.vscode-yaml
