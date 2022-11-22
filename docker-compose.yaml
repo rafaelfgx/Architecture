@@ -8,7 +8,7 @@ services:
             context: .
             dockerfile: dockerfile
         environment:
-            - ConnectionStrings__Context=Server=architecture_database;Database=Database;User Id=sa;Password=P4ssW0rd!;
+            - ConnectionStrings__Context=Server=architecture_database;Database=Database;User Id=sa;Password=P4ssW0rd!;TrustServerCertificate=true;
             - Serilog__WriteTo__1__Args__path=/app/logs/
         depends_on:
             - database
