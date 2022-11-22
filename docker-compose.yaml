@@ -1,0 +1,35 @@
+version: "3.7"
+services:
+    web:
+        image: architecture/web
+        container_name: architecture_web
+        restart: always
+        build:
+            context: .
+            dockerfile: dockerfile
+        environment:
+            - ConnectionStrings__Context=Server=architecture_database;Database=Database;User Id=sa;Password=P4ssW0rd!;TrustServerCertificate=true;
+            - Serilog__WriteTo__1__Args__path=/app/logs/
+        depends_on:
+            - database
+        networks:
+            - network
+        ports:
+            - 8090:80
+    database:
+        image: mcr.microsoft.com/mssql/server
+        container_name: architecture_database
+        restart: always
+        environment:
+            - ACCEPT_EULA=Y
+            - SA_PASSWORD=P4ssW0rd!
+        networks:
+            - network
+        ports:
+            - 1433:1433
+        volumes:
+            - database:/var/opt/mssql
+networks:
+    network:
+volumes:
+    database:

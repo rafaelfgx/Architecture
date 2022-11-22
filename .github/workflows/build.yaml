@@ -1,0 +1,41 @@
+name: build
+on:
+  push:
+    branches: [main]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: DotNet Setup
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: "7.x.x"
+
+      - name: DotNet Publish
+        run: dotnet publish source/Web --configuration Release --output web
+
+      - name: Node Setup
+        uses: actions/setup-node@v3
+        with:
+          check-latest: true
+
+      - name: Angular Publish
+        run: |
+          cd source/Web/Frontend
+          npm run restore
+          npm run publish
+
+      - name: Prepare Artifact
+        run: |
+          rm --force --recursive web/*.pdb
+          rm --force --recursive web/Frontend/*
+          mv --force source/Web/Frontend/dist/* web/Frontend
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: web
+          path: web

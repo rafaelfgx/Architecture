@@ -1,0 +1,11 @@
+<select
+        class="uk-select"
+        (change)="change()"
+        [(ngModel)]="value"
+        [disabled]="disabled || !options || options.length === 0"
+        [id]="formControlName"
+        [name]="formControlName"
+        [title]="text">
+    <option selected [ngValue]="undefined"></option>
+    <option *ngFor="let option of options" [ngValue]="option.value">{{ option.text }}</option>
+</select>
