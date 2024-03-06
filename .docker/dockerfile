@@ -1,0 +1,21 @@
+# DotNet
+FROM mcr.microsoft.com/dotnet/sdk:8.0-alpine AS dotnet
+COPY source ./source
+RUN dotnet publish ./source/Web/Architecture.Web.csproj --configuration Release --output /dist
+
+# Angular
+FROM node:20-alpine AS angular
+WORKDIR ./source/Web/Frontend
+COPY source/Web/Frontend/package.json .
+RUN npm run restore
+COPY source/Web/Frontend .
+RUN npm run publish
+
+# Runtime
+FROM mcr.microsoft.com/dotnet/aspnet:8.0-alpine
+RUN apk add --no-cache icu-libs
+ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false
+WORKDIR /app
+COPY --from=dotnet /dist .
+COPY --from=angular /source/Web/Frontend/dist ./wwwroot
+ENTRYPOINT ["dotnet", "Architecture.Web.dll"]
