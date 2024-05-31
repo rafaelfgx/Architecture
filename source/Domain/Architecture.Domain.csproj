@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <ItemGroup>
+        <PackageReference Include="DotNetCore.Domain" />
+    </ItemGroup>
+    <ItemGroup>
+        <Using Include="DotNetCore.Domain" />
+    </ItemGroup>
+</Project>

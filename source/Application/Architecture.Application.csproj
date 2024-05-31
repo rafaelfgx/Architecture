@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <ItemGroup>
+        <PackageReference Include="DotNetCore.Mediator" />
+        <PackageReference Include="DotNetCore.Security" />
+        <PackageReference Include="Microsoft.Extensions.Localization" />
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\Database\Architecture.Database.csproj" />
+    </ItemGroup>
+    <ItemGroup>
+        <Using Include="Architecture.Database" />
+        <Using Include="Architecture.Domain" />
+        <Using Include="Architecture.Model" />
+        <Using Include="DotNetCore.EntityFrameworkCore" />
+        <Using Include="DotNetCore.Extensions" />
+        <Using Include="DotNetCore.Mediator" />
+        <Using Include="DotNetCore.Objects" />
+        <Using Include="DotNetCore.Results" />
+        <Using Include="DotNetCore.Security" />
+        <Using Include="FluentValidation" />
+        <Using Include="Microsoft.Extensions.Localization" />
+        <Using Include="System.Security.Claims" />
+    </ItemGroup>
+</Project>

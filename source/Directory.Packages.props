@@ -1,0 +1,22 @@
+<Project>
+    <PropertyGroup>
+        <EnablePackageVersionOverride>false</EnablePackageVersionOverride>
+        <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageVersion Include="DotNetCore.AspNetCore" Version="18.12.0" />
+        <PackageVersion Include="DotNetCore.Domain" Version="18.12.0" />
+        <PackageVersion Include="DotNetCore.EntityFrameworkCore" Version="18.12.0" />
+        <PackageVersion Include="DotNetCore.Logging" Version="18.12.0" />
+        <PackageVersion Include="DotNetCore.Mediator" Version="18.12.0" />
+        <PackageVersion Include="DotNetCore.Objects" Version="18.12.0" />
+        <PackageVersion Include="DotNetCore.Security" Version="18.12.0" />
+        <PackageVersion Include="DotNetCore.Services" Version="18.12.0" />
+        <PackageVersion Include="Microsoft.AspNetCore.SpaProxy" Version="8.0.6" />
+        <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.6" />
+        <PackageVersion Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.6" />
+        <PackageVersion Include="Microsoft.Extensions.Localization" Version="8.0.6" />
+        <PackageVersion Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    </ItemGroup>
+</Project>
