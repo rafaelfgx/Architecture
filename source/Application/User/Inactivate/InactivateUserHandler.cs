@@ -2,20 +2,13 @@ using static System.Net.HttpStatusCode;
 
 namespace Architecture.Application;
 
-public sealed record InactivateUserHandler : IHandler<InactivateUserRequest>
+public sealed class InactivateUserHandler(
+    IUnitOfWork unitOfWork,
+    IUserRepository userRepository
+    ) : IHandler<InactivateUserRequest>
 {
-    private readonly IUnitOfWork _unitOfWork;
-    private readonly IUserRepository _userRepository;
-
-    public InactivateUserHandler
-    (
-        IUnitOfWork unitOfWork,
-        IUserRepository userRepository
-    )
-    {
-        _unitOfWork = unitOfWork;
-        _userRepository = userRepository;
-    }
+    private readonly IUnitOfWork _unitOfWork = unitOfWork;
+    private readonly IUserRepository _userRepository = userRepository;
 
     public async Task<Result> HandleAsync(InactivateUserRequest request)
     {

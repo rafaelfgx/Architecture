@@ -2,26 +2,17 @@ using static System.Net.HttpStatusCode;
 
 namespace Architecture.Application;
 
-public sealed record AddUserHandler : IHandler<AddUserRequest, long>
+public sealed class AddUserHandler(
+    IAuthRepository authRepository,
+    IHashService hashService,
+    IUnitOfWork unitOfWork,
+    IUserRepository userRepository
+    ) : IHandler<AddUserRequest, long>
 {
-    private readonly IAuthRepository _authRepository;
-    private readonly IHashService _hashService;
-    private readonly IUnitOfWork _unitOfWork;
-    private readonly IUserRepository _userRepository;
-
-    public AddUserHandler
-    (
-        IAuthRepository authRepository,
-        IHashService hashService,
-        IUnitOfWork unitOfWork,
-        IUserRepository userRepository
-    )
-    {
-        _authRepository = authRepository;
-        _hashService = hashService;
-        _unitOfWork = unitOfWork;
-        _userRepository = userRepository;
-    }
+    private readonly IAuthRepository _authRepository = authRepository;
+    private readonly IHashService _hashService = hashService;
+    private readonly IUnitOfWork _unitOfWork = unitOfWork;
+    private readonly IUserRepository _userRepository = userRepository;
 
     public async Task<Result<long>> HandleAsync(AddUserRequest request)
     {

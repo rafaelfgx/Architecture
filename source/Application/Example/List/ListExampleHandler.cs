@@ -2,11 +2,9 @@ using static System.Net.HttpStatusCode;
 
 namespace Architecture.Application;
 
-public sealed record ListExampleHandler : IHandler<ListExampleRequest, IEnumerable<ExampleModel>>
+public sealed class ListExampleHandler(IExampleRepository exampleRepository) : IHandler<ListExampleRequest, IEnumerable<ExampleModel>>
 {
-    private readonly IExampleRepository _exampleRepository;
-
-    public ListExampleHandler(IExampleRepository exampleRepository) => _exampleRepository = exampleRepository;
+    private readonly IExampleRepository _exampleRepository = exampleRepository;
 
     public async Task<Result<IEnumerable<ExampleModel>>> HandleAsync(ListExampleRequest request)
     {

@@ -2,23 +2,15 @@ using static System.Net.HttpStatusCode;
 
 namespace Architecture.Application;
 
-public sealed record DeleteUserHandler : IHandler<DeleteUserRequest>
+public sealed class DeleteUserHandler(
+    IUnitOfWork unitOfWork,
+    IAuthRepository authRepository,
+    IUserRepository userRepository
+    ) : IHandler<DeleteUserRequest>
 {
-    private readonly IUnitOfWork _unitOfWork;
-    private readonly IAuthRepository _authRepository;
-    private readonly IUserRepository _userRepository;
-
-    public DeleteUserHandler
-    (
-        IUnitOfWork unitOfWork,
-        IAuthRepository authRepository,
-        IUserRepository userRepository
-    )
-    {
-        _unitOfWork = unitOfWork;
-        _authRepository = authRepository;
-        _userRepository = userRepository;
-    }
+    private readonly IUnitOfWork _unitOfWork = unitOfWork;
+    private readonly IAuthRepository _authRepository = authRepository;
+    private readonly IUserRepository _userRepository = userRepository;
 
     public async Task<Result> HandleAsync(DeleteUserRequest request)
     {

@@ -2,11 +2,9 @@ using static System.Net.HttpStatusCode;
 
 namespace Architecture.Application;
 
-public sealed record GridExampleHandler : IHandler<GridExampleRequest, Grid<ExampleModel>>
+public sealed class GridExampleHandler(IExampleRepository exampleRepository) : IHandler<GridExampleRequest, Grid<ExampleModel>>
 {
-    private readonly IExampleRepository _exampleRepository;
-
-    public GridExampleHandler(IExampleRepository exampleRepository) => _exampleRepository = exampleRepository;
+    private readonly IExampleRepository _exampleRepository = exampleRepository;
 
     public async Task<Result<Grid<ExampleModel>>> HandleAsync(GridExampleRequest request)
     {

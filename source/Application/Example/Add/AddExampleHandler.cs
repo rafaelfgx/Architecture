@@ -2,20 +2,13 @@ using static System.Net.HttpStatusCode;
 
 namespace Architecture.Application;
 
-public sealed record AddExampleHandler : IHandler<AddExampleRequest, long>
+public sealed class AddExampleHandler(
+    IExampleRepository exampleRepository,
+    IUnitOfWork unitOfWork
+    ) : IHandler<AddExampleRequest, long>
 {
-    private readonly IExampleRepository _exampleRepository;
-    private readonly IUnitOfWork _unitOfWork;
-
-    public AddExampleHandler
-    (
-        IExampleRepository exampleRepository,
-        IUnitOfWork unitOfWork
-    )
-    {
-        _exampleRepository = exampleRepository;
-        _unitOfWork = unitOfWork;
-    }
+    private readonly IExampleRepository _exampleRepository = exampleRepository;
+    private readonly IUnitOfWork _unitOfWork = unitOfWork;
 
     public async Task<Result<long>> HandleAsync(AddExampleRequest request)
     {

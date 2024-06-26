@@ -2,26 +2,17 @@ using static System.Net.HttpStatusCode;
 
 namespace Architecture.Application;
 
-public sealed record AuthHandler : IHandler<AuthRequest, AuthResponse>
+public sealed class AuthHandler(
+    IAuthRepository authRepository,
+    IHashService hashService,
+    IJwtService jwtService,
+    IStringLocalizer stringLocalizer
+    ) : IHandler<AuthRequest, AuthResponse>
 {
-    private readonly IAuthRepository _authRepository;
-    private readonly IHashService _hashService;
-    private readonly IJwtService _jwtService;
-    private readonly IStringLocalizer _stringLocalizer;
-
-    public AuthHandler
-    (
-        IAuthRepository authRepository,
-        IHashService hashService,
-        IJwtService jwtService,
-        IStringLocalizer stringLocalizer
-    )
-    {
-        _authRepository = authRepository;
-        _hashService = hashService;
-        _jwtService = jwtService;
-        _stringLocalizer = stringLocalizer;
-    }
+    private readonly IAuthRepository _authRepository = authRepository;
+    private readonly IHashService _hashService = hashService;
+    private readonly IJwtService _jwtService = jwtService;
+    private readonly IStringLocalizer _stringLocalizer = stringLocalizer;
 
     public async Task<Result<AuthResponse>> HandleAsync(AuthRequest request)
     {

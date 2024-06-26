@@ -2,11 +2,9 @@ using static System.Net.HttpStatusCode;
 
 namespace Architecture.Application;
 
-public sealed record GetUserHandler : IHandler<GetUserRequest, UserModel>
+public sealed class GetUserHandler(IUserRepository userRepository) : IHandler<GetUserRequest, UserModel>
 {
-    private readonly IUserRepository _userRepository;
-
-    public GetUserHandler(IUserRepository userRepository) => _userRepository = userRepository;
+    private readonly IUserRepository _userRepository = userRepository;
 
     public async Task<Result<UserModel>> HandleAsync(GetUserRequest request)
     {
