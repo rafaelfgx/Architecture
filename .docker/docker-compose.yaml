@@ -1,0 +1,38 @@
+services:
+    web:
+        image: architecture/web
+        container_name: architecture_web
+        restart: always
+        build:
+            context: ..
+            dockerfile: ./.docker/dockerfile
+        environment:
+            - Authentication__Schemes__Bearer__SigningKeys__1__Issuer=Issuer
+            - Authentication__Schemes__Bearer__SigningKeys__1__Value=58a97cd766d741e8a21b8d3c4279652469801dc8da844fa5bf80afeea85aa472
+            - Authentication__Schemes__Bearer__ValidAudience=Audience
+            - Authentication__Schemes__Bearer__ValidIssuer=Issuer
+            - ConnectionStrings__Context=Server=architecture_database;Database=Database;User Id=sa;Password=P4ssW0rd!;TrustServerCertificate=true;
+            - Serilog__WriteTo__1__Args__path=/app/logs/
+        depends_on:
+            - database
+        networks:
+            - network
+        ports:
+            - 8090:8080
+    database:
+        image: mcr.microsoft.com/mssql/server
+        container_name: architecture_database
+        restart: always
+        environment:
+            - ACCEPT_EULA=Y
+            - SA_PASSWORD=P4ssW0rd!
+        networks:
+            - network
+        ports:
+            - 1433:1433
+        volumes:
+            - database:/var/opt/mssql
+networks:
+    network:
+volumes:
+    database:

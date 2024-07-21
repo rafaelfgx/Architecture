@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+    <PropertyGroup>
+        <SpaRoot>Frontend</SpaRoot>
+        <SpaProxyServerUrl>http://localhost:4200</SpaProxyServerUrl>
+        <SpaProxyLaunchCommand>npm start</SpaProxyLaunchCommand>
+        <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="DotNetCore.AspNetCore" />
+        <PackageReference Include="DotNetCore.Logging" />
+        <PackageReference Include="DotNetCore.Services" />
+        <PackageReference Include="Microsoft.AspNetCore.SpaProxy" />
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\Application\Architecture.Application.csproj" />
+    </ItemGroup>
+    <ItemGroup>
+        <Using Include="Architecture.Application" />
+        <Using Include="Architecture.Database" />
+        <Using Include="Architecture.Model" />
+        <Using Include="Architecture.Web" />
+        <Using Include="DotNetCore.AspNetCore" />
+        <Using Include="DotNetCore.EntityFrameworkCore" />
+        <Using Include="DotNetCore.Extensions" />
+        <Using Include="DotNetCore.IoC" />
+        <Using Include="DotNetCore.Logging" />
+        <Using Include="DotNetCore.Mediator" />
+        <Using Include="DotNetCore.Objects" />
+        <Using Include="DotNetCore.Results" />
+        <Using Include="DotNetCore.Security" />
+        <Using Include="DotNetCore.Services" />
+        <Using Include="Microsoft.AspNetCore.Authorization" />
+        <Using Include="Microsoft.AspNetCore.Mvc" />
+        <Using Include="Microsoft.EntityFrameworkCore" />
+        <Using Include="Microsoft.Extensions.Localization" />
+    </ItemGroup>
+</Project>
