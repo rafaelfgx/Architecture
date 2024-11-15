@@ -1,0 +1,44 @@
+name: build
+on:
+  push:
+    branches: [main]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: DotNet Setup
+        uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: source/global.json
+
+      - name: DotNet Publish
+        run: dotnet publish source/Web --configuration Release --output web
+
+      - name: Node Setup
+        uses: actions/setup-node@v4
+        with:
+          node-version: "*"
+          check-latest: true
+
+      - name: Frontend Publish
+        run: |
+          cd source/Web/Frontend
+          npm run restore
+          npm run build
+
+      - name: Artifact Prepare
+        run: |
+          mkdir web/wwwroot
+          rm --force --recursive web/*.pdb
+          rm --force --recursive web/Frontend/*
+          mv --force source/Web/Frontend/dist/browser/* web/wwwroot
+          jq '.api = "https://github.com"' web/wwwroot/assets/settings.json > tmp && mv tmp web/wwwroot/assets/settings.json
+
+      - name: Artifact Upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: web
+          path: web
