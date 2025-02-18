@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <ItemGroup>
+        <PackageReference Include="DotNetCore.EntityFrameworkCore" />
+        <PackageReference Include="DotNetCore.Objects" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+            <TreatAsUsed>true</TreatAsUsed>
+        </PackageReference>
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\Domain\Architecture.Domain.csproj" />
+        <ProjectReference Include="..\Model\Architecture.Model.csproj" />
+    </ItemGroup>
+    <ItemGroup>
+        <Using Include="Architecture.Domain" />
+        <Using Include="Architecture.Model" />
+        <Using Include="DotNetCore.EntityFrameworkCore" />
+        <Using Include="DotNetCore.Objects" />
+        <Using Include="DotNetCore.Repositories" />
+        <Using Include="Microsoft.EntityFrameworkCore" />
+        <Using Include="Microsoft.EntityFrameworkCore.Design" />
+        <Using Include="Microsoft.EntityFrameworkCore.Metadata.Builders" />
+        <Using Include="Microsoft.EntityFrameworkCore.SqlServer" />
+        <Using Include="System.Linq.Expressions" />
+    </ItemGroup>
+</Project>
