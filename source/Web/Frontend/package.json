@@ -1,35 +1,35 @@
 {
-    "name": "frontend",
-    "version": "0.0.0",
-    "dependencies": {
-        "@angular/common": "19.1.6",
-        "@angular/compiler": "19.1.6",
-        "@angular/core": "19.1.6",
-        "@angular/forms": "19.1.6",
-        "@angular/platform-browser": "19.1.6",
-        "@angular/platform-browser-dynamic": "19.1.6",
-        "@angular/router": "19.1.6",
-        "rxjs": "7.8.1",
-        "uikit": "3.23.0",
-        "zone.js": "0.15.0"
-    },
-    "devDependencies": {
-        "@angular/cli": "19.1.7",
-        "@angular/compiler-cli": "19.1.6",
-        "@angular-devkit/build-angular": "19.1.7",
-        "typescript": "5.7.3"
-    },
-    "browserslist": [
-        "last 1 Chrome version",
-        "last 1 Edge version",
-        "last 1 Firefox version",
-        "last 1 Opera version",
-        "last 1 Safari version",
-        "not dead"
-    ],
-    "scripts": {
-        "restore": "npm install",
-        "start": "ng serve",
-        "build": "ng build"
-    }
+  "name": "frontend",
+  "version": "0.0.0",
+  "dependencies": {
+    "@angular/common": "19.2.3",
+    "@angular/compiler": "19.2.3",
+    "@angular/core": "19.2.3",
+    "@angular/forms": "19.2.3",
+    "@angular/platform-browser": "19.2.3",
+    "@angular/platform-browser-dynamic": "19.2.3",
+    "@angular/router": "19.2.3",
+    "rxjs": "7.8.2",
+    "uikit": "3.23.3",
+    "zone.js": "0.15.0"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "19.2.4",
+    "@angular/cli": "19.2.4",
+    "@angular/compiler-cli": "19.2.3",
+    "typescript": "5.8.2"
+  },
+  "browserslist": [
+    "last 1 Chrome version",
+    "last 1 Edge version",
+    "last 1 Firefox version",
+    "last 1 Opera version",
+    "last 1 Safari version",
+    "not dead"
+  ],
+  "scripts": {
+    "restore": "npm install",
+    "start": "ng serve",
+    "build": "ng build"
+  }
 }
