@@ -1,7 +1,7 @@
 import { CommonModule } from "@angular/common";
 import { Component, inject } from "@angular/core";
 import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from "@angular/forms";
-import AppButtonComponent from "src/app/components/button/button.component";
+import { AppButtonComponent } from "src/app/components/button/button.component";
 import AppLabelComponent from "src/app/components/label/label.component";
 import AppSelectCommentComponent from "src/app/components/select/comment.select.component";
 import AppSelectPostComponent from "src/app/components/select/post.select.component";

@@ -1,6 +1,7 @@
 import { CommonModule } from "@angular/common";
 import { Component, Input } from "@angular/core";
 import { FormsModule, ReactiveFormsModule, NG_VALUE_ACCESSOR } from "@angular/forms";
+import { WattTextFieldComponent } from "@energinet/watt/text-field";
 import AppInputComponent from "./input.component";
 
 @Component({
@@ -10,8 +11,10 @@ import AppInputComponent from "./input.component";
     imports: [
         CommonModule,
         FormsModule,
-        ReactiveFormsModule
-    ]
+        ReactiveFormsModule,
+        WattTextFieldComponent
+    ],
+    standalone: true
 })
 export default class AppInputPasswordComponent extends AppInputComponent {
     @Input() autofocus = false;

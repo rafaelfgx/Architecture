@@ -1,12 +1,8 @@
-<input
-       autocomplete="off"
-       class="uk-input {{class}}"
-       (input)="input($event)"
-       [autofocus]="autofocus"
-       [disabled]="disabled"
-       [id]="formControlName"
-       [name]="formControlName"
-       [placeholder]="text"
-       [title]="text"
-       [type]="type"
-       [value]="value" />
+<watt-text-field
+    [type]="type"
+    [value]="value"
+    [placeholder]="text"
+    [formControl]="formControl"
+    (searchChanged)="handleInputChange($event)"
+    [disabled]="disabled">
+</watt-text-field>

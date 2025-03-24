@@ -1,15 +1,31 @@
-<div class="js-upload uk-padding-small uk-padding-remove-left" uk-form-custom>
-    <input type="file" multiple #input [disabled]="disabled" [id]="formControlName" [name]="formControlName" (change)="change(input.files)">
-    <button class="uk-button uk-button-default" type="button" tabindex="-1">Select</button>
+<div class="watt-uploader-container">
+    <input
+        type="file"
+        multiple
+        hidden
+        #input
+        [disabled]="disabled"
+        [id]="formControlName"
+        [name]="formControlName"
+        (change)="change(input.files)"
+    >
+
+    <watt-button
+        variant="secondary"
+        type="button"
+        (click)="input.click()"
+    >
+        {{ text || 'Select' }}
+    </watt-button>
 </div>
 
 <div>
-    <ul class="uk-list uk-list-bullet">
+    <ul>
         @for (file of files; track file.name) {
-            <li class="uk-text-warning">{{ file.name }}: {{ file.progress }}%</li>
+            <li class="watt-text-warning">{{ file.name }}: {{ file.progress }}%</li>
         }
         @for (file of value; track file.name) {
-            <li class="uk-text-success">{{ file.name }}</li>
+            <li class="watt-text-success">{{ file.name }}</li>
         }
     </ul>
 </div>

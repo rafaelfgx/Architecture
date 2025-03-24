@@ -5,14 +5,19 @@ import AppComponent from "../component";
 import AppFileService from "./file.service";
 import AppFile from "./file";
 
+// Watt components
+import { WattButtonComponent } from "@energinet/watt/button";
+
 @Component({
     selector: "app-file",
     templateUrl: "./file.component.html",
+    standalone: true,
     providers: [{ provide: NG_VALUE_ACCESSOR, useExisting: AppFileComponent, multi: true }],
     imports: [
         CommonModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        WattButtonComponent
     ]
 })
 export default class AppFileComponent extends AppComponent<AppFile[]> {

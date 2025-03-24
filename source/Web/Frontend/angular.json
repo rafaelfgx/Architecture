@@ -52,12 +52,8 @@
                         "polyfills": [
                             "zone.js"
                         ],
-                        "scripts": [
-                            "node_modules/uikit/dist/js/uikit.min.js",
-                            "node_modules/uikit/dist/js/uikit-icons.min.js"
-                        ],
+                        "scripts": [],
                         "styles": [
-                            "node_modules/uikit/dist/css/uikit.min.css",
                             "src/styles/style.scss"
                         ],
                         "tsConfig": "tsconfig.json"
