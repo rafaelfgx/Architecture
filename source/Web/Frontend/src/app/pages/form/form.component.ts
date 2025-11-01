@@ -1,11 +1,11 @@
 import { CommonModule } from "@angular/common";
 import { Component, inject } from "@angular/core";
 import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from "@angular/forms";
-import AppButtonComponent from "src/app/components/button/button.component";
-import AppLabelComponent from "src/app/components/label/label.component";
-import AppSelectCommentComponent from "src/app/components/select/comment.select.component";
-import AppSelectPostComponent from "src/app/components/select/post.select.component";
-import AppSelectUserComponent from "src/app/components/select/user.select.component";
+import AppButtonComponent from "@components/button/button.component";
+import AppLabelComponent from "@components/label/label.component";
+import AppSelectCommentComponent from "@components/select/comment.select.component";
+import AppSelectPostComponent from "@components/select/post.select.component";
+import AppSelectUserComponent from "@components/select/user.select.component";
 
 @Component({
     selector: "app-form",

@@ -1,6 +1,6 @@
 import { Observable } from "rxjs";
-import AppComponent from "src/app/components/component";
-import AppOption from "src/app/components/select/option";
+import AppComponent from "@components/component";
+import AppOption from "@components/select/option";
 
 export default abstract class AppSelectComponent extends AppComponent<any> {
     abstract child: AppSelectComponent;

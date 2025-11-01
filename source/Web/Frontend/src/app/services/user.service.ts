@@ -1,8 +1,8 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import AppGridParameters from "src/app/components/grid/grid-parameters";
-import GridService from "src/app/components/grid/grid.service";
-import AppUser from "src/app/models/user";
+import AppGridParameters from "@components/grid/grid-parameters";
+import GridService from "@components/grid/grid.service";
+import AppUser from "@models/user";
 
 @Injectable({ providedIn: "root" })
 export default class AppUserService {

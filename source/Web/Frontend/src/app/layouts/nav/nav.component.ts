@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { RouterModule } from "@angular/router";
-import AppAuthService from "src/app/services/auth.service";
+import AppAuthService from "@services/auth.service";
 
 @Component({
     selector: "app-nav",

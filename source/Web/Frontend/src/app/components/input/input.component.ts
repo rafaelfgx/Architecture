@@ -1,4 +1,4 @@
-import AppComponent from "src/app/components/component";
+import AppComponent from "@components/component";
 
 export default abstract class AppInputComponent extends AppComponent<any> {
     type!: string;

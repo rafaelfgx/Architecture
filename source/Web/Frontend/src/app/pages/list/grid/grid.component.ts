@@ -2,13 +2,13 @@ import { CommonModule } from "@angular/common";
 import { Component, inject } from "@angular/core";
 import { FormBuilder, FormControl, ReactiveFormsModule } from "@angular/forms";
 import { debounceTime } from "rxjs/operators";
-import AppGrid from "src/app/components/grid/grid";
-import AppGridParameters from "src/app/components/grid/grid-parameters";
-import AppInputTextComponent from "src/app/components/input/text.input.component";
-import AppOrderComponent from "src/app/components/grid/order/order.component";
-import AppPageComponent from "src/app/components/grid/page/page.component";
-import AppUser from "src/app/models/user";
-import AppUserService from "src/app/services/user.service";
+import AppGrid from "@components/grid/grid";
+import AppGridParameters from "@components/grid/grid-parameters";
+import AppInputTextComponent from "@components/input/text.input.component";
+import AppOrderComponent from "@components/grid/order/order.component";
+import AppPageComponent from "@components/grid/page/page.component";
+import AppUser from "@models/user";
+import AppUserService from "@services/user.service";
 
 @Component({
     selector: "app-list-grid",

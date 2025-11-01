@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
-import AppAuth from "src/app/models/auth";
+import AppAuth from "@models/auth";
 
 @Injectable({ providedIn: "root" })
 export default class AppAuthService {
