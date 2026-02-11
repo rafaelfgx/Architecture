@@ -1,0 +1,22 @@
+<Project>
+    <PropertyGroup>
+        <EnablePackageVersionOverride>false</EnablePackageVersionOverride>
+        <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageVersion Include="DotNetCore.AspNetCore" Version="20.10.0" />
+        <PackageVersion Include="DotNetCore.Domain" Version="20.10.0" />
+        <PackageVersion Include="DotNetCore.EntityFrameworkCore" Version="20.10.0" />
+        <PackageVersion Include="DotNetCore.IoC" Version="20.10.0" />
+        <PackageVersion Include="DotNetCore.Logging" Version="20.10.0" />
+        <PackageVersion Include="DotNetCore.Mediator" Version="20.10.0" />
+        <PackageVersion Include="DotNetCore.Objects" Version="20.10.0" />
+        <PackageVersion Include="DotNetCore.Security" Version="20.10.0" />
+        <PackageVersion Include="DotNetCore.Services" Version="20.10.0" />
+        <PackageVersion Include="Microsoft.AspNetCore.SpaProxy" Version="10.0.3" />
+        <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.3" />
+        <PackageVersion Include="Microsoft.EntityFrameworkCore.Tools" Version="10.0.3" />
+        <PackageVersion Include="Microsoft.Extensions.Localization" Version="10.0.3" />
+    </ItemGroup>
+</Project>
