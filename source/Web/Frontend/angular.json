@@ -1,0 +1,92 @@
+{
+    "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+    "cli": {
+        "analytics": false
+    },
+    "newProjectRoot": "projects",
+    "projects": {
+        "frontend": {
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-angular:application",
+                    "configurations": {
+                        "development": {
+                            "extractLicenses": false,
+                            "optimization": false,
+                            "sourceMap": true
+                        },
+                        "production": {
+                            "budgets": [
+                                {
+                                    "maximumError": "2MB",
+                                    "maximumWarning": "1MB",
+                                    "type": "initial"
+                                },
+                                {
+                                    "maximumError": "4kB",
+                                    "maximumWarning": "2kB",
+                                    "type": "anyComponentStyle"
+                                }
+                            ],
+                            "outputHashing": "all",
+                            "optimization": {
+                                "scripts": true,
+                                "styles": {
+                                    "minify": true,
+                                    "inlineCritical": false
+                                },
+                                "fonts": true
+                            }
+                        }
+                    },
+                    "defaultConfiguration": "production",
+                    "options": {
+                        "assets": [
+                            "src/favicon.ico",
+                            "src/assets"
+                        ],
+                        "browser": "src/main.ts",
+                        "index": "src/index.html",
+                        "inlineStyleLanguage": "scss",
+                        "outputPath": "dist",
+                        "polyfills": [
+                            "zone.js"
+                        ],
+                        "scripts": [
+                            "node_modules/uikit/dist/js/uikit.min.js",
+                            "node_modules/uikit/dist/js/uikit-icons.min.js"
+                        ],
+                        "styles": [
+                            "node_modules/uikit/dist/css/uikit.min.css",
+                            "src/styles/style.scss"
+                        ],
+                        "tsConfig": "tsconfig.json"
+                    }
+                },
+                "serve": {
+                    "builder": "@angular-devkit/build-angular:dev-server",
+                    "configurations": {
+                        "development": {
+                            "buildTarget": "frontend:build:development",
+                            "proxyConfig": "proxy.json"
+                        },
+                        "production": {
+                            "buildTarget": "frontend:build:production"
+                        }
+                    },
+                    "defaultConfiguration": "development"
+                }
+            },
+            "prefix": "app",
+            "projectType": "application",
+            "root": "",
+            "schematics": {
+                "@schematics/angular:component": {
+                    "style": "scss"
+                }
+            },
+            "sourceRoot": "src"
+        }
+    },
+    "version": 1
+}
