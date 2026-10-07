@@ -1,0 +1,13 @@
+<input
+       autocomplete="off"
+       [class]="'uk-input ' + cssClass()"
+       (input)="input($event)"
+       (blur)="blur()"
+       [autofocus]="autofocus()"
+       [disabled]="disabled()"
+       [id]="id()"
+       [name]="id()"
+       [placeholder]="text()"
+       [title]="text()"
+       [type]="type"
+       [value]="value() ?? ''" />

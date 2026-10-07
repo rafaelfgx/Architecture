@@ -1,0 +1,161 @@
+# Architecture
+
+![](https://github.com/rafaelfgx/Architecture/actions/workflows/build.yaml/badge.svg)
+
+## Principles and Patterns
+
+- Clean Architecture
+- Clean Code
+- SOLID Principles
+- KISS Principle
+- DRY Principle
+- Mediator Pattern
+- Result Pattern
+- Folder-by-Feature Structure
+
+## Benefits
+
+- Simple and evolutionary architecture.
+- Standardized and centralized flow for validation, log, security, return, etc.
+- Avoid cyclical references.
+- Avoid unnecessary dependency injection.
+- Segregation by feature instead of technical type.
+- Single responsibility for each request and response.
+- Simplicity of unit testing.
+
+## Technologies
+
+- [.NET](https://dotnet.microsoft.com/download)
+- [ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core)
+- [Entity Framework Core](https://docs.microsoft.com/en-us/ef/core)
+- [C#](https://docs.microsoft.com/en-us/dotnet/csharp)
+- [Angular](https://angular.dev)
+- [UIkit](https://getuikit.com/docs/introduction)
+
+## Packages
+
+- **Source:** [https://github.com/rafaelfgx/DotNetCore](https://github.com/rafaelfgx/DotNetCore)
+
+- **Published:** [https://www.nuget.org/profiles/rafaelfgx](https://www.nuget.org/profiles/rafaelfgx)
+
+## Run
+
+<details>
+<summary>Command Line</summary>
+
+#### Prerequisites
+
+- [.NET SDK](https://dotnet.microsoft.com/download/dotnet)
+- [SQL Server](https://go.microsoft.com/fwlink/?linkid=866662)
+- [Node](https://nodejs.org)
+- [Angular CLI](https://angular.dev/tools/cli)
+
+#### Steps
+
+1. Open directory **source\Web\Frontend** in command line and execute **npm run restore**.
+2. Open directory **source\Web** in command line and execute **dotnet run**.
+3. Open <https://localhost:8090>.
+
+</details>
+
+<details>
+<summary>Visual Studio Code</summary>
+
+#### Prerequisites
+
+- [.NET SDK](https://dotnet.microsoft.com/download/dotnet)
+- [SQL Server](https://go.microsoft.com/fwlink/?linkid=866662)
+- [Node](https://nodejs.org)
+- [Angular CLI](https://angular.dev/tools/cli)
+- [Visual Studio Code](https://code.visualstudio.com)
+- [C# Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
+
+#### Steps
+
+1. Open directory **source\Web\Frontend** in command line and execute **npm run restore**.
+2. Open **source** directory in Visual Studio Code.
+3. Press **F5**.
+
+</details>
+
+<details>
+<summary>Visual Studio</summary>
+
+#### Prerequisites
+
+- [Visual Studio](https://visualstudio.microsoft.com)
+- [Node](https://nodejs.org)
+- [Angular CLI](https://angular.dev/tools/cli)
+
+#### Steps
+
+1. Open directory **source\Web\Frontend** in command line and execute **npm run restore**.
+2. Open **source\Architecture.sln** in Visual Studio.
+3. Set **Architecture.Web** as startup project.
+4. Press **F5**.
+
+</details>
+
+<details>
+<summary>Docker</summary>
+
+#### Prerequisites
+
+- [Docker](https://www.docker.com/get-started)
+
+#### Steps
+
+1. Execute **docker compose up --detach --build --force-recreate --remove-orphans**.
+2. Open <http://localhost:8090>.
+
+</details>
+
+## Layers
+
+- **Web:** Frontend and Backend.
+
+    - **Frontend**
+
+        - **Service:** It is the interface between frontend and backend and has logic that does not belong in components.
+
+        - **Guard:** It validates if a route can be activated.
+
+        - **ErrorHandler:** It provides a hook for centralized exception handling.
+
+        - **HttpInterceptor:** It intercepts and handles an HttpRequest or HttpResponse.
+
+    - **Backend**
+
+        - **Controller:** It has no any logic, business rules or dependencies other than mediator.
+
+- **Application:** Flow control. It has only business flow, not business rules.
+
+    - **Request:** It has properties representing the request.
+
+    - **Request Validator:** It has rules for validating the request.
+
+    - **Response:** It has properties representing the response.
+
+    - **Handler:** It is responsible for the business flow and processing a request to return a response. It call factories, repositories, unit of work, services or mediator, but it has no business rules.
+
+    - **Factory:** It creates a complex object. Any change to object affects compile time rather than runtime.
+
+- **Domain:** Business rules and domain logic. It has no any references to any layer. It has aggregates, entities, value objects and services.
+
+    - **Aggregate:** It defines a consistency boundary around one or more entities. The purpose is to model transactional invariants. One entity in an aggregate is the root, any other entities in the aggregate are children of the root.
+
+    - **Entity:** It has unique identity. Identity may span multiple bounded contexts and may endure beyond the lifetime. Changing properties is only allowed through internal business methods in the entity, not through direct access to the properties.
+
+    - **Value Object:** It has no identity and it is immutable. It is defined only by the values ​​of its properties. To update a value object, you must create a new instance to replace the old one. It can have methods that encapsulate domain logic, but these methods must have no side effects on the state.
+
+    - **Services:** It performs domain operations and business rules. It is stateless and has no operations that are not a part of an entity or value object.
+
+- **Model:** Data transfer objects. It has properties to transport and return data.
+
+- **Database:** Data persistence.
+
+    - **Context:** It configures the connection and represents the database.
+
+    - **Entity Configuration:** It configures the entity and its properties in the database.
+
+    - **Repository:** It inherits from the generic repository and only implements specific methods.

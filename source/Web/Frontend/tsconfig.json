@@ -1,0 +1,37 @@
+{
+    "compilerOptions": {
+        "declaration": false,
+        "exactOptionalPropertyTypes": true,
+        "forceConsistentCasingInFileNames": true,
+        "module": "ESNext",
+        "moduleResolution": "bundler",
+        "noErrorTruncation": true,
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitOverride": true,
+        "noImplicitReturns": true,
+        "noUncheckedIndexedAccess": true,
+        "noPropertyAccessFromIndexSignature": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "removeComments": true,
+        "skipLibCheck": true,
+        "sourceMap": true,
+        "strict": true,
+        "target": "ESNext",
+        "lib": ["ESNext", "dom"],
+        "paths": {
+            "@app/*": ["./src/app/*"],
+            "@components/*": ["./src/app/components/*"],
+            "@layouts/*": ["./src/app/layouts/*"],
+            "@dtos/*": ["./src/app/dtos/*"],
+            "@services/*": ["./src/app/services/*"]
+        }
+    },
+    "angularCompilerOptions": {
+        "enableI18nLegacyMessageIdFormat": false,
+        "strictInjectionParameters": true,
+        "strictTemplates": true
+    },
+    "files": ["src/main.ts"],
+    "exclude": ["node_modules", "**/*.spec.ts"]
+}
