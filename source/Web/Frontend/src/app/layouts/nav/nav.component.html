@@ -1,0 +1,16 @@
+<div class="uk-card uk-card-default uk-card-body">
+    <ul class="uk-nav uk-nav-default">
+        <li class="uk-margin-small" routerLinkActive="nav-active">
+            <a routerLink="/main/home">
+                <span uk-icon="icon: home"></span>
+                <span class="uk-margin-small-left">HOME</span>
+            </a>
+        </li>
+        <li class="uk-margin-small">
+            <a href="/" (click)="signout($event)">
+                <span uk-icon="icon: sign-out"></span>
+                <span class="uk-margin-small-left">SIGN OUT</span>
+            </a>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,7 @@
+<Solution>
+    <Project Path="Application/Architecture.Application.csproj" />
+    <Project Path="Database/Architecture.Database.csproj" />
+    <Project Path="Domain/Architecture.Domain.csproj" />
+    <Project Path="Model/Architecture.Model.csproj" />
+    <Project Path="Web/Architecture.Web.csproj" />
+</Solution>
